@@ -1,15 +1,13 @@
-use std::fs::File;
-use std::io::{BufReader, BufRead};
 use std::collections::HashMap;
+use std::fs::File;
+use std::io::{BufRead, BufReader};
 
-pub fn process(input: &str) -> i64
-{
+pub fn process(input: &str) -> i64 {
     let file = File::open(input).unwrap(); // Open the file
     let reader = BufReader::new(file);
     let mut left_vec: Vec<i64> = Vec::new();
     let mut right_map: HashMap<i64, i64> = HashMap::new();
-    for line in reader.lines()
-    {
+    for line in reader.lines() {
         let line = line.unwrap();
         let words: Vec<&str> = line.split_whitespace().collect();
 
@@ -18,10 +16,7 @@ pub fn process(input: &str) -> i64
         let count = right_map.entry(right_num).or_insert(0);
         *count += 1;
     }
-    let mut result : i64 = 0;
-    for num in left_vec
-    {
-        result += num * right_map.get(&num).unwrap_or(&0);
-    }
-    result
+    left_vec
+        .iter()
+        .fold(0, |sum, num| sum + num * right_map.get(&num).unwrap_or(&0))
 }
