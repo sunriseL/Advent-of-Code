@@ -41,4 +41,14 @@ fn main() {
         input_dir.join("day1").to_str().unwrap(),
         Some(19097157),
     );
+    test_case(
+        advent_2024::day2_part1::process,
+        input_dir.join("day2").to_str().unwrap(),
+        Some(242),
+    );
+    test_case(
+        advent_2024::day2_part2::process,
+        input_dir.join("day2").to_str().unwrap(),
+        Some(311),
+    );
 }
