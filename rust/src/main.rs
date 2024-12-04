@@ -9,7 +9,7 @@ where
     F: Fn(&str) -> i64,
 {
     let name = type_name::<F>();
-    let name = name[name.find("::").unwrap() + 2..name.rfind("::").unwrap()].to_string();
+    let name = name[name.find("::").unwrap() + 2..].to_string();
     let result = func(input);
     if let Some(expect_result) = expect_result {
         if result == expect_result {
@@ -59,6 +59,16 @@ fn main() {
     test_case(
         advent_2024::day3_part2::process,
         input_dir.join("day3").to_str().unwrap(),
-        Some(173419328),
+        Some(90669332),
+    );
+    test_case(
+        advent_2024::day4::part1,
+        input_dir.join("day4").to_str().unwrap(),
+        Some(2532),
+    );
+    test_case(
+        advent_2024::day4::part2,
+        input_dir.join("day4").to_str().unwrap(),
+        Some(1941),
     );
 }
