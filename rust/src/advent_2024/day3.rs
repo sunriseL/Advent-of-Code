@@ -1,10 +1,10 @@
 use std::fs::File;
-use std::io::{BufRead, BufReader, Read};
+use std::io::{BufReader, Read};
 use std::char;
 
 #[derive(Debug)]
 #[derive(PartialEq)]
-enum Token {
+pub enum Token {
     Mul,
     Do,
     Dont,
@@ -17,7 +17,6 @@ enum Token {
 }
 
 pub struct Lexer<'a> {
-    input: &'a Vec<char>,
     current_iter: std::slice::Iter<'a, char>,
     current_char: Option<char>,
 }
@@ -25,7 +24,6 @@ pub struct Lexer<'a> {
 impl<'a> Lexer<'a> {
     pub fn new(input: &'a Vec<char>) -> Self {
         let mut lexer = Lexer {
-            input,
             current_iter: input.iter(),
             current_char: None,
         };
@@ -108,7 +106,71 @@ enum Status {
 
 }
 
-pub fn process(input: &str) -> i64 {
+pub fn part1(input: &str) -> i64 {
+    let file = File::open(input).unwrap(); // Open the file
+    let reader = BufReader::new(file);
+    let input: Vec<char> = reader.bytes().map(|b| char::from(b.unwrap())).collect();
+    let mut lexer = Lexer::new(&input);
+    let mut left_number: Option<u32> = None;
+    let mut right_number: Option<u32> = None;
+    let mut status: Status = Status::Idle;
+    let mut result: i64 = 0;
+    loop {
+        let token = lexer.next_token();
+        match token {
+            Token::EOF => break,
+            Token::Invalid => {
+                status = Status::Idle;
+            }
+            Token::Mul => {
+                match status {
+                    Status::Idle => status = Status::WithMul,
+                    _ => status = Status::Idle,
+                }
+            }
+            Token::LeftBracket => {
+                match status {
+                    Status::WithMul => status = Status::WithLeftBracket,
+                    _ => status = Status::Idle,
+                }
+            }
+            Token::Number(number) if number < 1000 => {
+                if number < 1000 && status == Status::WithLeftBracket {
+                    left_number = Some(number);
+                    status = Status::WithLeftNumber;
+                } else if number < 1000 && status == Status::WithComma {
+                    right_number = Some(number);
+                    status = Status::WithRightNumber;
+                } else {
+                    status = Status::Idle;
+                }
+            }
+            Token::Comma => {
+                match status {
+                    Status::WithLeftNumber => status = Status::WithComma,
+                    _ => status = Status::Idle,
+                }
+            }
+            Token::RightBracket => {
+                match status {
+                    Status::WithRightNumber => {
+                        result += i64::from(left_number.unwrap() * right_number.unwrap());
+                        left_number = None;
+                        right_number = None;
+                        status = Status::Idle;
+                    }
+                    _ => {
+                        status = Status::Idle;
+                    }
+                }
+            }
+            _ => status = Status::Idle,
+        }
+    }
+    result
+}
+
+pub fn part2(input: &str) -> i64 {
     let file = File::open(input).unwrap(); // Open the file
     let reader = BufReader::new(file);
     let input: Vec<char> = reader.bytes().map(|b| char::from(b.unwrap())).collect();
@@ -118,7 +180,8 @@ pub fn process(input: &str) -> i64 {
     let mut status: Status = Status::Idle;
     let mut result: i64 = 0;
     let mut enable: bool = true;
-    while let token = lexer.next_token() {
+    loop {
+        let token = lexer.next_token();
         match token {
             Token::EOF => break,
             Token::Invalid => {

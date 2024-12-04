@@ -32,32 +32,32 @@ fn main() {
 
     let input_dir = root.join("input").join("2024");
     test_case(
-        advent_2024::day1_part1::process,
+        advent_2024::day1::part1,
         input_dir.join("day1").to_str().unwrap(),
         Some(2113135),
     );
     test_case(
-        advent_2024::day1_part2::process,
+        advent_2024::day1::part2,
         input_dir.join("day1").to_str().unwrap(),
         Some(19097157),
     );
     test_case(
-        advent_2024::day2_part1::process,
+        advent_2024::day2::part1,
         input_dir.join("day2").to_str().unwrap(),
         Some(242),
     );
     test_case(
-        advent_2024::day2_part2::process,
+        advent_2024::day2::part2,
         input_dir.join("day2").to_str().unwrap(),
         Some(311),
     );
     test_case(
-        advent_2024::day3_part1::process,
+        advent_2024::day3::part1,
         input_dir.join("day3").to_str().unwrap(),
         Some(173419328),
     );
     test_case(
-        advent_2024::day3_part2::process,
+        advent_2024::day3::part2,
         input_dir.join("day3").to_str().unwrap(),
         Some(90669332),
     );

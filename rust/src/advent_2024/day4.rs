@@ -43,7 +43,6 @@ fn valid_count(matrix: &Vec<Vec<char>>, r: i32, c: i32) -> Result<i64, Box<dyn E
 
 fn valid_xmas(matrix: &Vec<Vec<char>>, r: i32, c: i32) -> Result<i64, Box<dyn Error>> {
     is_element(matrix, r, c, 'A')?;
-    let mut result: i64 = 0;
     for (e1, e2) in [('S', 'M'), ('M', 'S')] {
         for is_horizontal in [false, true] {
             if is_horizontal {
