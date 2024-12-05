@@ -66,7 +66,7 @@ pub fn part2(input: &str) -> i64 {
         let mut valid = true;
         for i in 0..update.len() {
             for j in i..update.len() {
-                if m.get(&(update[j], update[i])).is_some() {
+                if m.contains(&(update[j], update[i])) {
                     valid = false;
                     break;
                 }
