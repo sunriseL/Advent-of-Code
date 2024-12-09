@@ -91,24 +91,34 @@ fn main() {
     //     input_dir.join("day6").to_str().unwrap(),
     //     Some(1789),
     // );
+    // test_case(
+    //     advent_2024::day7::part1,
+    //     input_dir.join("day7").to_str().unwrap(),
+    //     Some(10741443549536),
+    // );
+    // test_case(
+    //     advent_2024::day7::part2,
+    //     input_dir.join("day7").to_str().unwrap(),
+    //     Some(500335179214836),
+    // );
+    // test_case(
+    //     advent_2024::day8::part1,
+    //     input_dir.join("day8").to_str().unwrap(),
+    //     Some(303),
+    // );
+    // test_case(
+    //     advent_2024::day8::part2,
+    //     input_dir.join("day8").to_str().unwrap(),
+    //     Some(1045),
+    // );
     test_case(
-        advent_2024::day7::part1,
-        input_dir.join("day7").to_str().unwrap(),
-        Some(10741443549536),
+        advent_2024::day9::part1,
+        input_dir.join("day9").to_str().unwrap(),
+        Some(6415184586041),
     );
     test_case(
-        advent_2024::day7::part2,
-        input_dir.join("day7").to_str().unwrap(),
-        Some(500335179214836),
-    );
-    test_case(
-        advent_2024::day8::part1,
-        input_dir.join("day8").to_str().unwrap(),
-        Some(303),
-    );
-    test_case(
-        advent_2024::day8::part2,
-        input_dir.join("day8").to_str().unwrap(),
-        Some(1045),
+        advent_2024::day9::part2,
+        input_dir.join("day9").to_str().unwrap(),
+        Some(6436819084274),
     );
 }
