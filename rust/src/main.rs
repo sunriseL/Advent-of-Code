@@ -1,8 +1,8 @@
-use colored::*;
 use std::any::type_name;
 use std::path::Path;
 
 mod advent_2024;
+mod advent_2025;
 
 fn test_case<F>(func: F, input: &str, expect_result: Option<i64>)
 where
@@ -13,17 +13,17 @@ where
     let result = func(input);
     if let Some(expect_result) = expect_result {
         if result == expect_result {
-            println!("{}", name.on_green());
+            println!("{}", name);
         } else {
             println!(
                 "{}: {}(Expect) vs {}(Actual)",
-                name.on_red(),
+                name,
                 expect_result,
                 result
             );
         }
     } else {
-        println!("{}: {}", name.on_white(), result);
+        println!("{}: {}", name, result);
     }
 }
 
@@ -111,34 +111,64 @@ fn main() {
     //     input_dir.join("day8").to_str().unwrap(),
     //     Some(1045),
     // );
+    // test_case(
+    //     advent_2024::day9::part1,
+    //     input_dir.join("day9").to_str().unwrap(),
+    //     Some(6415184586041),
+    // );
+    // test_case(
+    //     advent_2024::day9::part2,
+    //     input_dir.join("day9").to_str().unwrap(),
+    //     Some(6436819084274),
+    // );
+    // test_case(
+    //     advent_2024::day10::part1,
+    //     input_dir.join("day10").to_str().unwrap(),
+    //     Some(6436819084274),
+    // );
+    // test_case(
+    //     advent_2024::day10::part2,
+    //     input_dir.join("day10").to_str().unwrap(),
+    //     Some(6436819084274),
+    // );
+    // test_case(
+    //     advent_2024::day10::part1,
+    //     input_dir.join("day10").to_str().unwrap(),
+    //     Some(744),
+    // );
+    // test_case(
+    //     advent_2024::day10::part2,
+    //     input_dir.join("day10").to_str().unwrap(),
+    //     Some(1651),
+    // );
+    // test_case(
+    //     advent_2024::day11::part1,
+    //     input_dir.join("day11").to_str().unwrap(),
+    //     Some(185894),
+    // );
+    // test_case(
+    //     advent_2024::day11::part2,
+    //     input_dir.join("day11").to_str().unwrap(),
+    //     Some(221632504974231),
+    let input_dir = root.join("input").join("2025");
     test_case(
-        advent_2024::day9::part1,
-        input_dir.join("day9").to_str().unwrap(),
-        Some(6415184586041),
+        advent_2025::day1::part1,
+        input_dir.join("day1").to_str().unwrap(),
+        Some(995),
     );
     test_case(
-        advent_2024::day9::part2,
-        input_dir.join("day9").to_str().unwrap(),
-        Some(6436819084274),
+        advent_2025::day1::part2,
+        input_dir.join("day1").to_str().unwrap(),
+        Some(9847),
     );
     test_case(
-        advent_2024::day10::part1,
-        input_dir.join("day10").to_str().unwrap(),
-        Some(744),
+        advent_2025::day2::part1,
+        input_dir.join("day2").to_str().unwrap(),
+        Some(38158151648),
     );
     test_case(
-        advent_2024::day10::part2,
-        input_dir.join("day10").to_str().unwrap(),
-        Some(1651),
-    );
-    test_case(
-        advent_2024::day11::part1,
-        input_dir.join("day11").to_str().unwrap(),
-        Some(185894),
-    );
-    test_case(
-        advent_2024::day11::part2,
-        input_dir.join("day11").to_str().unwrap(),
-        Some(221632504974231),
+        advent_2025::day2::part2,
+        input_dir.join("day2").to_str().unwrap(),
+        Some(9847),
     );
 }
