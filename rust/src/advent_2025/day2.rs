@@ -71,7 +71,7 @@ pub fn part2(input: &str) -> i64 {
             for divide_count in 2..=digit {
                 if is_duplicate(i, digit as i64, divide_count as i64) {
                     result += i;
-                    println!("{}, divide_count: {}", i, divide_count);
+                    // println!("{}, divide_count: {}", i, divide_count);
                     break;
                 }
             }

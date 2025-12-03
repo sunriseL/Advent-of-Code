@@ -159,7 +159,7 @@ fn main() {
     test_case(
         advent_2025::day1::part2,
         input_dir.join("day1").to_str().unwrap(),
-        Some(9847),
+        Some(5847),
     );
     test_case(
         advent_2025::day2::part1,
@@ -169,6 +169,16 @@ fn main() {
     test_case(
         advent_2025::day2::part2,
         input_dir.join("day2").to_str().unwrap(),
-        Some(9847),
+        Some(45283684555),
+    );
+    test_case(
+        advent_2025::day3::part1,
+        input_dir.join("day3").to_str().unwrap(),
+        Some(16973),
+    );
+    test_case(
+        advent_2025::day3::part2,
+        input_dir.join("day3").to_str().unwrap(),
+        Some(168027167146027),
     );
 }
