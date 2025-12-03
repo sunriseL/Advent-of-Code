@@ -150,6 +150,37 @@ fn main() {
     //     advent_2024::day11::part2,
     //     input_dir.join("day11").to_str().unwrap(),
     //     Some(221632504974231),
+    // );
+    // test_case(
+    //     advent_2024::day12::part1,
+    //     input_dir.join("day12").to_str().unwrap(),
+    //     Some(1518548),
+    // );
+    // test_case(
+    //     advent_2024::day12::part2,
+    //     input_dir.join("day12").to_str().unwrap(),
+    //     Some(909564),
+    // );
+    // test_case(
+    //     advent_2024::day13::part1,
+    //     input_dir.join("day13").to_str().unwrap(),
+    //     Some(37680),
+    // );
+    // test_case(
+    //     advent_2024::day13::part2,
+    //     input_dir.join("day13").to_str().unwrap(),
+    //     Some(87550094242995),
+    // );
+    // test_case(
+    //     advent_2024::day14::part1,
+    //     input_dir.join("day14").to_str().unwrap(),
+    //     Some(218619324),
+    // );
+    // test_case(
+    //     advent_2024::day14::part2,
+    //     input_dir.join("day14").to_str().unwrap(),
+    //     Some(6446),
+    // );
     let input_dir = root.join("input").join("2025");
     test_case(
         advent_2025::day1::part1,
