@@ -212,4 +212,24 @@ fn main() {
         input_dir.join("day3").to_str().unwrap(),
         Some(168027167146027),
     );
+    test_case(
+        advent_2025::day4::part1,
+        input_dir.join("day4").to_str().unwrap(),
+        Some(1433),
+    );
+    test_case(
+        advent_2025::day4::part2,
+        input_dir.join("day4").to_str().unwrap(),
+        Some(8616),
+    );
+    test_case(
+        advent_2025::day5::part1,
+        input_dir.join("day5").to_str().unwrap(),
+        Some(848),
+    );
+    test_case(
+        advent_2025::day5::part2,
+        input_dir.join("day5").to_str().unwrap(),
+        Some(334714395325710),
+    );
 }
