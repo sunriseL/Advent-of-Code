@@ -232,4 +232,54 @@ fn main() {
         input_dir.join("day5").to_str().unwrap(),
         Some(334714395325710),
     );
+    test_case(
+        advent_2025::day6::part1,
+        input_dir.join("day6").to_str().unwrap(),
+        Some(5361735137219),
+    );
+    test_case(
+        advent_2025::day6::part2,
+        input_dir.join("day6").to_str().unwrap(),
+        Some(11744693538946),
+    );
+    test_case(
+        advent_2025::day7::part1,
+        input_dir.join("day7").to_str().unwrap(),
+        Some(1703),
+    );
+    test_case(
+        advent_2025::day7::part2,
+        input_dir.join("day7").to_str().unwrap(),
+        Some(171692855075500),
+    );
+    test_case(
+        advent_2025::day8::part1,
+        input_dir.join("day8").to_str().unwrap(),
+        Some(84968),
+    );
+    test_case(
+        advent_2025::day8::part2,
+        input_dir.join("day8").to_str().unwrap(),
+        Some(8663467782),
+    );
+    test_case(
+        advent_2025::day9::part1,
+        input_dir.join("day9").to_str().unwrap(),
+        Some(4777824480),
+    );
+    test_case(
+        advent_2025::day9::part2,
+        input_dir.join("test").to_str().unwrap(),
+        Some(171692855075500),
+    );
+    test_case(
+        advent_2025::day10::part1,
+        input_dir.join("day10").to_str().unwrap(),
+        Some(4777824480),
+    );
+    test_case(
+        advent_2025::day10::part2,
+        input_dir.join("day10").to_str().unwrap(),
+        Some(171692855075500),
+    );
 }
